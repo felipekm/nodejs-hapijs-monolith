@@ -8,21 +8,40 @@
 
 > The barebone is located under `app/api` and `app/core`, it is desgined by default covered by an Users API which is the authentecion is supported by a JWT plugin (app/core/plugins). There is also a Workers layer which comes with the `webapi` as default but it also ables you to create your own workers such Notification (notify) or Transactions (shake data in db) workers. If you need more details of how apply in your business feel free to get in touch and I'll be happy to help.
 
+> The project is open source and it is hosted on [Github](https://github.com/felipekm/nodejs-hapi-api-worker-monolith).
+
 ## Configuring development environment
 
-#### Step 1: installing tools
+### Step 0: Getting into the project
+
+Base project structure:
+
+Files:
+
+- `.env`: configuration file for environment variables
+- `server.js`: the main file of the application
+- `ecosystem.config.js`: the PM2 app configuration file
+
+Folders:
+- `app`: the application folder
+- `app/api`: the api folder sectioned by version
+- `app/core`: the core folder
+- `app/core/plugins`: the plugins folder
+- `app/core/workers`: the workers folder
+
+#### Step 1: installing necessary tools
 
 * install git: [git-scm](http://git-scm.com/)
 * install NodeJS@12+: [nodejs.org](http://nodejs.org)
 
 #### Step 2: preparing repository
 
-Clone repository:
+Clone repository or fork it to your github account:
 ```
 git clone https:/github.com/felipekm/nodejs-hapijs-monolith
 ```
 
-Install project packages
+Install project packages:
 ```
 cd nodejs-hapijs-monolith
 npm install
