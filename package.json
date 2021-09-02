@@ -1,0 +1,68 @@
+{
+  "name": "nodejs-hapijs-monolith",
+  "author": "Felipe Kautzmann <felipe.kautzmann@gmail.cm>",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/felipekm/nodejs-hapijs-monolith",
+  "description": "nodejs-hapijs-monolith",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "debug": "NODE_ENV=development node_modules/.bin/nodemon --inspect ./server.js",
+    "test": "node_modules/.bin/cross-env ENGINE=webapi NODE_ENV=test jest --env=./app/core/tests/config-test.js",
+    "lint-staged": "node_modules/.bin/lint-staged",
+    "lint": "node_modules/.bin/eslint .",
+    "start": "sudo pm2 start ecosystem.config.js --only api -c \"0 0 * * *\""
+  },
+  "pre-commit": [
+    "lint-staged",
+    "test"
+  ],
+  "lint-staged": {
+    "*.js": [
+      "eslint"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.2.0",
+    "del": "~2.2.2",
+    "eslint": "^4.11.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "jest": "^22.4.3",
+    "jest-environment-node": "^22.4.3",
+    "lint-staged": "^7.2.2",
+    "nodemon": "^1.18.2",
+    "pm2": "^2.8.0",
+    "pre-commit": "^1.2.2"
+  },
+  "dependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.2",
+    "boom": "^5.2.0",
+    "currency.js": "^1.1.4",
+    "dotenv": "^6.0.0",
+    "hapi": "^17.8.1",
+    "hapi-auth-jwt2": "^8.2.0",
+    "joi": "^14.3.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongodb": "^2.2.36",
+    "walk": "^2.3.13"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "url": "https://github.com/felipekm/nodejs-hapijs-monolith",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/felipekm/nodejs-hapijs-monolith/issues"
+  },
+  "engines": {
+    "npm": ">= 6.4.1",
+    "node": ">= 10.12.0"
+  }
+}
